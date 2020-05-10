@@ -1,6 +1,6 @@
 
 .intro {
-	font-size: 14px;
-	line-height: 24px;
+	font-size: 14rpx;
+	line-height: 24rpx;
 }
 
