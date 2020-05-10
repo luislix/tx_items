@@ -4,6 +4,7 @@
 			<template>
 				<view>
 					<text class="intro">本项目为包含uni-ui全部组件的项目，在pages.json内使用easycom通过正则匹配自动引入组件。以本页面为例，uni-card为自动导入组件，无需在页面内import即可使用，效果等同于页面内import。</text>
+					<text>hahha</text>
 				</view>
 				<view>
 					<text class="intro">详见：</text>
