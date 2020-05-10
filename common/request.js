@@ -1,4 +1,5 @@
-const commonUrl = "https://dev.shopxo.net/"; //公共路径 
+// const commonUrl = "https://dev.shopxo.net/"; //公共路径 
+const commonUrl = "/api/"; //公共路径 
 
 // post请求封装
 function postRequest(url, data) {
@@ -48,7 +49,7 @@ function getRequest(url, data) {
 			method: "GET",
 			dataType: "json",
 			header: {
-				"content-type": "application/json"
+				"content-type": "application/x-www-form-urlencoded"
 			},
 			success: function(res) {
 				if (res.statusCode == 200) {

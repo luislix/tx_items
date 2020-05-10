@@ -2,26 +2,31 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "添选"
+			"navigationStyle": "custom"
 		}
 	},{
             "path" : "pages/list/list",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "全部商品"
+			}
         }
         ,{
             "path" : "pages/shopping/shopping",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "购物车"
+			}
         }
         ,{
             "path" : "pages/mine/mine",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "个人中心"
+			}
         }
     ],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#FFFFFF",
-		"backgroundColor": "#FFFFFF"
+		"navigationBarBackgroundColor": "#FFFFFF"
 	},
 	"tabBar": {
 			"color":"#8a8a8a",
