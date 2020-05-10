@@ -15,21 +15,31 @@
 </template>
 
 <script>
+	import request from '../../common/request.js'
 	export default {
 		data() {
 			return {
 				href: 'https://uniapp.dcloud.io/collocation/pages?id=easycom'
 			}
 		},
+		created() {
+			this.res();
+		},
 		methods: {
-
+			res(){
+				// console.log(request.post)
+				var data = {};
+				request.post('index/index',data).then(res=>{
+					console.log(res);
+				})
+			}
 		}
 	}
 </script>
 
 <style>
 	.intro {
-		font-size: 14px;
-		line-height: 24px;
+		font-size: 14rpx;
+		line-height: 24rpx;
 	}
 </style>
