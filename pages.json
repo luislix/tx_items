@@ -2,7 +2,14 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationStyle": "custom"
+			"navigationStyle": "custom",
+			"app-plus": {    
+				"titleNView": {    
+					"splitLine": {  
+						"color":"#f2f2f2"  
+					}    
+				}    
+			}
 		}
 	},{
             "path" : "pages/list/list",
@@ -17,15 +24,20 @@
 			}
         }
         ,{
-            "path" : "pages/mine/mine",
+            "path" : "pages/mine/mine" ,
             "style" : {
 				"navigationBarTitleText": "个人中心"
+			}
+        },{
+            "path" : "pages/productDetails/productDetails" ,
+            "style" : {
+				"navigationBarTitleText": "商品详情"
 			}
         }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "添选",
 		"navigationBarBackgroundColor": "#FFFFFF"
 	},
 	"tabBar": {
