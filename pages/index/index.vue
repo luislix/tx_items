@@ -70,6 +70,7 @@
 					this.navigation = res.data.navigation;
 					this.recommendList = res.data.data_list
 					// console.log(res.data.data_list)
+					console.log(this.navigation)
 				})
 			},
 			// 搜索框点击确定动作

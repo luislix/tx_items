@@ -21,13 +21,8 @@
 					</view>
 				</view>
 			</scroll-view>
-
 			<scroll-view scroll-y="true" class="right-wrapper" scroll-with-animation="true" v-else>
 				<mescroll-body ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback">
-				
-				
-				
-				
 				<view class="right-content">
 					<!-- 产品区 非美妆-->
 					<view class="product-wrapper">
@@ -43,9 +38,6 @@
 						</view>
 					</view>
 				</view>
-				
-				
-				
 				</mescroll-body>
 			</scroll-view>
 		</view>
