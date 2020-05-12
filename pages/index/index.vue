@@ -193,7 +193,6 @@
 				justify-content: space-between;
 				position: relative;
 				.title{
-					font-family:PingFangSC-Regular,PingFang SC;
 					font-size:28rpx;
 					font-weight:400;
 					color:rgba(0,0,0,1);
@@ -206,11 +205,11 @@
 					-webkit-box-orient: vertical;/*重点*/
 				}
 				.price{
+					font-family: Akrobat-Regular;
 					font-size:40rpx;
 					color:rgba(0,0,0,1);
 					line-height:34rpx;
 					.symbol{
-						font-family: Akrobat-Regular;
 						font-size: 28rpx;
 						line-height: 34rpx;
 					}

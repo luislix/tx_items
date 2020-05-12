@@ -13,8 +13,7 @@
 </script>
 
 <style>
-	/* 解决头条小程序组件内引入字体不生效的问题 */
-	/* #ifdef MP-TOUTIAO */
+
 	@font-face {
 		font-family: uniicons;
 		src: url('/static/uni.ttf');
@@ -22,26 +21,26 @@
 	
 	@font-face {
 		font-family: SourceHanSansCN-Regular;
-		src: url('/static/SourceHanSansCN-Regular.ttf');
+		src: url('/static/typeface/SourceHanSansCN-Regular.otf');
 	}
 	@font-face {
 		font-family: Akrobat-Regular;
-		src: url('/static/Akrobat-Regular.ttf');
+		src: url('/static/typeface/Akrobat-Regular.otf');
+		src: url;
 	}
 	
 	
 	
-	/* #endif */
 	* {
 		margin: 0;
 		padding: 0;
-		font-family: SourceHanSansCN-Regular;
 	}
 
 	/* 公共样式 */
 	page {
 		background: #F8F2F2;
 		color: #4a4a4a;
+		font-family: SourceHanSansCN-Regular;
 	}
 
 	page,

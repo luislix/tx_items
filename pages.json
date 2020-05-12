@@ -31,6 +31,11 @@
 		"style": {
 			"navigationBarTitleText": "商品详情"
 		}
+	}, {
+		"path": "pages/productList/productList",
+		"style": {
+			"navigationBarBackgroundColor":"#F8F2F2"
+		}
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
