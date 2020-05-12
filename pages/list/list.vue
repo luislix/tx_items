@@ -74,6 +74,8 @@
 				var data = data;
 				request.post('search/index', data).then(res => {
 					console.log(res)
+					this.catrgory = res.data
+						this.makeup = false
 					// this.catrgoryList = res.data
 					// this.chooseGoods(res.data[0].id)
 				})
@@ -95,14 +97,17 @@
 				for (var i = 0; i < data.length; i++) {
 					if (id == data[i].id) {
 						var itemLength = data[i].items.length
-						// console.log(data[i].items.length)
-						// arr = data[i].items
-						if(itemLength != "0"){
+						console.log(itemLength)
+						arr = data[i].items
+						if(itemLength != "11"){
 							var postData={
 								category_id:id,
 								page:that.page
 							}
 							that.getList(postData)
+						}else{
+									that.product = arr
+									that.makeup = true
 						}
 					}
 				}
