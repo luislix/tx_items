@@ -13,9 +13,29 @@
 </script>
 
 <style>
+	/* 解决头条小程序组件内引入字体不生效的问题 */
+	/* #ifdef MP-TOUTIAO */
+	@font-face {
+		font-family: uniicons;
+		src: url('/static/uni.ttf');
+	}
+	
+	@font-face {
+		font-family: SourceHanSansCN-Regular;
+		src: url('/static/SourceHanSansCN-Regular.ttf');
+	}
+	@font-face {
+		font-family: Akrobat-Regular;
+		src: url('/static/Akrobat-Regular.ttf');
+	}
+	
+	
+	
+	/* #endif */
 	* {
 		margin: 0;
 		padding: 0;
+		font-family: SourceHanSansCN-Regular;
 	}
 
 	/* 公共样式 */
@@ -39,14 +59,5 @@
 		box-sizing: border-box;
 	}
 
-	/* 解决头条小程序组件内引入字体不生效的问题 */
-	/* #ifdef MP-TOUTIAO */
-	@font-face {
-		/* font-family: "Noto Sans CJK SC Thin"; */
-		font-family: uniicons;
-		src: url('/static/uni.ttf');
-	}
 
-
-	/* #endif */
 </style>

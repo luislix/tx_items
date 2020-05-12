@@ -29,7 +29,7 @@
 					<image class="recommend_img" :src="recommendItem.images"></image>
 					<view class="recommend_txt">
 						<text class="title">{{recommendItem.title}}</text>
-						<text class="price">￥{{recommendItem.min_price}}<text class="earn">/赚<text>3.6</text></text></text>
+						<text class="price"><text class="symbol">￥</text>{{recommendItem.min_price}}<text class="earn">/赚<text>3.6</text></text></text>
 						<image src="../../static/images/index/icon-fenxiang.png" @tap.stop="share"></image>
 					</view>
 				</view>
@@ -155,8 +155,9 @@
 	// 热卖推荐
 	.recommend_box{
 		.recommend_title{
+			font-family: SourceHanSansCN-Regular;
 			padding-left: 49rpx;
-			font-size:42rpx;
+			font-size:40rpx;
 			font-weight:500;
 			color:rgba(51,51,51,1);
 			line-height:58rpx;
@@ -167,7 +168,7 @@
 			content: " ";
 			width:2rpx;
 			height:30rpx;
-			background:rgba(255,129,96,1);
+			background:#fe7569;
 			position: absolute;
 			top: 50%;
 			left: 24rpx;
@@ -176,7 +177,7 @@
 		.recommend{
 			height: 248rpx;
 			background-color: #FFFFFF;
-			margin-bottom: 16rpx;
+			margin-bottom: 12rpx;
 			padding: 15rpx 53rpx 15rpx 50rpx;
 			display: flex;
 			.recommend_img{
@@ -192,6 +193,7 @@
 				justify-content: space-between;
 				position: relative;
 				.title{
+					font-family:PingFangSC-Regular,PingFang SC;
 					font-size:28rpx;
 					font-weight:400;
 					color:rgba(0,0,0,1);
@@ -204,17 +206,24 @@
 					-webkit-box-orient: vertical;/*重点*/
 				}
 				.price{
-					font-size:30rpx;
+					font-size:40rpx;
 					color:rgba(0,0,0,1);
 					line-height:34rpx;
+					.symbol{
+						font-family: Akrobat-Regular;
+						font-size: 28rpx;
+						line-height: 34rpx;
+					}
 					.earn{
+						font-family: SourceHanSansCN-Regular;
 						margin-left: 6rpx;
-						font-size:26rpx;
+						font-size:24rpx;
 						font-weight:400;
 						color:rgba(255,129,96,1);
 						line-height:36rpx;
 						text{
-							font-size:30rpx;
+							font-family: Akrobat-Regular;
+							font-size:40rpx;
 							line-height:48rpx;
 						}
 					}

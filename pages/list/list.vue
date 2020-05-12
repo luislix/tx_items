@@ -5,18 +5,35 @@
 			<scroll-view scroll-y="true" class="left-wrapper" scroll-with-animation="true">
 				<view class="left-content">
 					<view class="title-content" :class="select_index === index?'onSelected':''" v-for="(title,index) in catrgoryList"
-					 :key="title.id" @tap="choose(index)">{{title.name}}</view>
+					 :key="title.id" @tap="choose(index,title.id)">{{title.name}}</view>
 				</view>
 			</scroll-view>
 			<!-- 右边内容 -->
-			<scroll-view scroll-y="true" class="right-wrapper" scroll-with-animation="true">
+			<scroll-view scroll-y="true" class="right-wrapper" scroll-with-animation="true" v-if="makeup">
 				<view class="right-content">
-					<!-- 产品区 -->
+					<!-- 产品区 美妆-->
 					<view class="product-wrapper">
 						<view class="category-content">
-							<view class="product-item" v-for="(p_item,p_index) in catrgoryList[select_index].items" :key="p_item.id" @tap="enterDetail(p_item.id)">
+							<view class="product-item" v-for="(p_item,p_index) in product" :key="p_item.id" @tap="enterDetail(p_item.id)">
 								<image class="product-img" :src="p_item.icon"></image>
-								<text class="product-title">{{p_item.name}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+
+			<scroll-view scroll-y="true" class="right-wrapper" scroll-with-animation="true" v-else>
+				<view class="right-content">
+					<!-- 产品区 非美妆-->
+					<view class="product-wrapper">
+						<view class="category-content">
+							<view class="category-list" v-for="(c_item,c_index) in catrgory" :key="c_item.id" @tap="enterDetail(c_item.id)">
+								<image class="category_img" :src="c_item.big_images" mode=""></image>
+								<view class="category_txt">
+									<text class="title">{{c_item.name}}</text>
+									<text class="price"><text class="symbol">￥</text>价格<text class="earn">/赚<text>3.6</text></text></text>
+									<image src="../../static/images/index/icon-fenxiang.png" @tap.stop="share"></image>
+								</view>
 							</view>
 						</view>
 					</view>
@@ -33,27 +50,70 @@
 			return {
 				// data:[],//全部数据
 				catrgoryList: [],
+				product: [], //美妆列表
+				catrgory: [], //其他列表
 				select_index: 0,
+				makeup: true,
+				page:1//分页数
 			}
 		},
 		onLoad() {
-			this.res();
+			this.getClassification();
 		},
 		methods: {
-			// 获取数据
-			res() {
+			// 获取分类数据
+			getClassification() {
 				var data = {};
 				request.post('goods/category', data).then(res => {
 					this.catrgoryList = res.data
-					console.log(res.data)
+					this.chooseGoods(res.data[0].id)
+				})
+			},
+			// 获取列表数据
+			getList(data) {
+				var data = data;
+				request.post('search/index', data).then(res => {
+					console.log(res)
+					// this.catrgoryList = res.data
+					// this.chooseGoods(res.data[0].id)
 				})
 			},
 			// 选择分类
-			choose(index) {
+			choose(index, id) {
 				if (this.select_index === index) {
 					return;
 				}
 				this.select_index = index;
+				this.chooseGoods(id)
+			},
+			// 分类对应商品
+			chooseGoods(id) {
+				var that = this;
+				var data = that.catrgoryList
+				console.log(id)
+				var arr = [];
+				for (var i = 0; i < data.length; i++) {
+					if (id == data[i].id) {
+						var itemLength = data[i].items.length
+						// console.log(data[i].items.length)
+						// arr = data[i].items
+						if(itemLength != "0"){
+							var postData={
+								category_id:id,
+								page:that.page
+							}
+							that.getList(postData)
+						}
+					}
+				}
+				// console.log(that.catrgory)
+				// if (id == '1') {
+				// 	that.product = arr
+				// 	that.makeup = true
+				// } else {
+				// 	that.catrgory = arr
+				// 	that.makeup = false
+				// }
 			},
 			// 进入详情
 			enterDetail(e) {
@@ -72,9 +132,12 @@
 			position: absolute;
 			top: 0;
 			bottom: 0;
+
 			.left-wrapper {
+				border-top: 1rpx #F7F3F1 solid;
 				width: 161rpx;
 				flex: 0 0 161rpx;
+
 				.left-content {
 					.title-content {
 						width: 100%;
@@ -86,9 +149,11 @@
 						font-size: 26rpx;
 						font-weight: 400;
 						line-height: 36rpx;
+
 						&.onSelected {
 							position: relative;
 							color: #FFA68F;
+
 							&::before {
 								content: '';
 								position: absolute;
@@ -105,34 +170,38 @@
 			}
 
 			.right-wrapper {
+				border-top: 1rpx #F7F3F1 solid;
 				flex: 1;
 				background-color: #fff;
+
 				.right-content {
 					width: 100%;
 					border-left: 1rpx solid #efefef;
 					box-sizing: border-box;
+
 					.product-wrapper {
 						.category-content {
 							display: flex;
-							flex-direction: row;
-							flex-flow: wrap;
-							padding: 20rpx 20rpx 0;
+							flex-wrap: wrap;
+							justify-content: space-around;
+							align-content: space-around;
+
 							.product-item {
-								width: 33%;
-								display: flex;
-								flex-direction: column;
-								justify-content: center;
-								align-items: center;
-								margin-bottom: 20rpx;
+								margin-top: 98rpx;
+								width: 260rpx;
+								height: 86rpx;
+
 								.product-img {
-									width: 120rpx;
-									height: 140rpx;
-									margin-bottom: 10rpx;
-								}
-								.product-title {
-									font-size: 23rpx;
+									width: 100%;
+									height: 100%;
 								}
 							}
+						}
+
+						.category-list {
+							width: 100%;
+							padding: 26rpx 34rpx;
+							background: #007AFF;
 						}
 					}
 				}
