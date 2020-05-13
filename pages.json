@@ -36,6 +36,21 @@
 		"style": {
 			"navigationBarBackgroundColor":"#F8F2F2"
 		}
+	}, {
+		"path": "pages/service/service",
+		"style": {
+			"navigationBarTitleText": "客服"
+		}
+	}, {
+		"path": "pages/address/addressList",
+		"style": {
+			"navigationBarTitleText": "地址管理"
+		}
+	}, {
+		"path": "pages/address/addressEdit",
+		"style": {
+			"navigationBarTitleText": "添加收货地址"
+		}
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

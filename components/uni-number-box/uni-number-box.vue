@@ -122,21 +122,22 @@
 	/* #endif */
 
 	.uni-numbox {
+		font-family: Akrobat-Regular;
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: row;
-		height: 35px;
-		line-height: 35px;
-		width: 120px;
+		height: 31px;
+		line-height: 31px;
+		width: 108px;
 	}
 
 	.uni-numbox__value {
 		background-color: #ffffff;
-		width: 40px;
-		height: 35px;
+		width: 36px;
+		height: 31px;
 		text-align: center;
-		font-size: 32rpx;
+		font-size: 13rpx;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: #e5e5e5;
@@ -151,8 +152,8 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		width: 35px;
-		height: 35px;
+		width: 36px;
+		height: 31px;
 		/* line-height: $box-line-height;
  */
 		/* text-align: center;
@@ -175,8 +176,8 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		width: 35px;
-		height: 35px;
+		width: 36px;
+		height: 31px;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: #e5e5e5;

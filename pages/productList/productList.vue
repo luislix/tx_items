@@ -84,7 +84,7 @@
 		.title_img {
 			width: 100%;
 			height: 350rpx;
-			margin-bottom: 24rpx;
+			// margin-bottom: 12rpx;
 		}
 
 		.recommend_box {
@@ -103,7 +103,8 @@
 
 				.recommend_txt {
 					padding: 15rpx 0;
-					flex: 1;
+					width: 370rpx;
+					// flex: 1;
 					display: flex;
 					flex-direction: column;
 					justify-content: space-between;
@@ -118,11 +119,8 @@
 						overflow: hidden;
 						text-overflow: ellipsis;
 						display: -webkit-box;
-						/*重点，不能用block等其他*/
 						-webkit-line-clamp: 2;
-						/*重点IE和火狐不支持*/
 						-webkit-box-orient: vertical;
-						/*重点*/
 					}
 					.price {
 						font-family: Akrobat-Regular;
@@ -141,6 +139,7 @@
 							color: rgba(255, 129, 96, 1);
 							line-height: 36rpx;
 							text {
+								margin-left: 4rpx;
 								font-family: Akrobat-Regular;
 								font-size: 40rpx;
 								line-height: 48rpx;

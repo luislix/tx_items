@@ -5,7 +5,7 @@
 			<scroll-view scroll-y="true" class="left-wrapper" scroll-with-animation="true">
 				<view class="left-content">
 					<view class="title-content" :class="select_index === index?'onSelected':''" v-for="(title,index) in catrgoryList"
-					 :key="title.id" @tap="choose(index,title.id)">{{title.name}}</view>
+					 :key="title.id" @tap="choose(index,title.id)"><text>{{title.name}}</text><text class="title-english">English</text></view>
 				</view>
 			</scroll-view>
 			<!-- 右边内容 -->
@@ -172,17 +172,24 @@
 						width: 100%;
 						height: 100rpx;
 						display: flex;
+						flex-direction: column;
 						justify-content: center;
 						align-items: center;
 						cursor: pointer;
 						font-size: 26rpx;
 						font-weight: 400;
 						line-height: 36rpx;
-
+						font-weight:400;
+						.title-english{
+							font-family: uniicons;
+							font-size: 22rpx;
+							line-height: 32rpx;
+							font-weight:400;
+							letter-spacing: 6rpx;
+						}
 						&.onSelected {
 							position: relative;
 							color: #FFA68F;
-
 							&::before {
 								content: '';
 								position: absolute;
@@ -258,20 +265,20 @@
 								.price{
 									font-family: Akrobat-Regular;
 									font-size:40rpx;
-									color:rgba(0,0,0,1);
-									line-height:34rpx;
+									line-height: 48rpx;
 									.symbol{
-										font-size: 28rpx;
+										font-size: 24rpx;
 										line-height: 34rpx;
 									}
 									.earn{
 										font-family: SourceHanSansCN-Regular;
-										margin-left: 6rpx;
-										font-size:22rpx;
-										font-weight:400;
+										font-size: 24rpx;
+										font-weight: 400;
 										color:rgba(255,129,96,1);
 										line-height:36rpx;
+										margin-left: 6rpx;
 										text{
+											margin-left: 4rpx;
 											font-family: Akrobat-Regular;
 											font-size:38rpx;
 											line-height:48rpx;

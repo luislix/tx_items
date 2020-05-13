@@ -205,26 +205,27 @@
 					-webkit-line-clamp: 2;/*重点IE和火狐不支持*/
 					-webkit-box-orient: vertical;/*重点*/
 				}
-				.price{
+				.price {
 					font-family: Akrobat-Regular;
-					font-size:40rpx;
-					color:rgba(0,0,0,1);
-					line-height:34rpx;
-					.symbol{
-						font-size: 28rpx;
+					font-size: 40rpx;
+					line-height: 48rpx;
+					color: rgba(0, 0, 0, 1);
+					.symbol {
+						font-size: 24rpx;
 						line-height: 34rpx;
 					}
-					.earn{
+					.earn {
 						font-family: SourceHanSansCN-Regular;
+						font-size: 24rpx;
+						font-weight: 400;
+						color: rgba(255, 129, 96, 1);
+						line-height: 36rpx;
 						margin-left: 6rpx;
-						font-size:24rpx;
-						font-weight:400;
-						color:rgba(255,129,96,1);
-						line-height:36rpx;
-						text{
+						text {
+							margin-left: 4rpx;
 							font-family: Akrobat-Regular;
-							font-size:40rpx;
-							line-height:48rpx;
+							font-size: 40rpx;
+							line-height: 48rpx;
 						}
 					}
 				}
