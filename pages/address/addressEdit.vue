@@ -8,13 +8,15 @@
 			<text class="tit">手机号</text>
 			<input class="input" type="number" v-model="addressData.mobile" placeholder="收货人手机号码" placeholder-class="placeholder" />
 		</view>
-		<view class="row b-b">
+		<!-- <view class="row b-b">
 			<text class="tit">地址</text>
 			<text @click="chooseLocation" class="input">
 				{{addressData.addressName}}
 			</text>
 			<text class="yticon icon-shouhuodizhi"></text>
-		</view>
+		</view> -->
+		<button type="primary" @click="btnClick">选择地址</button>
+		<selectAddress ref='selectAddress' @selectAddress="successSelectAddress"></selectAddress>
 		<view class="row b-b"> 
 			<text class="tit">门牌号</text>
 			<input class="input" type="text" v-model="addressData.area" placeholder="楼号、门牌" placeholder-class="placeholder" />
@@ -29,7 +31,9 @@
 </template>
 
 <script>
+	import selectAddress from '@/components/yixuan-selectAddress/yixuan-selectAddress.vue'
 	export default {
+		components: {selectAddress},
 		data() {
 			return {
 				addressData: {
@@ -60,14 +64,14 @@
 			},
 			
 			//地图选择地址
-			chooseLocation(){
-				uni.chooseLocation({
-					success: (data)=> {
-						this.addressData.addressName = data.name;
-						this.addressData.address = data.name;
-					}
-				})
-			},
+			// chooseLocation(){
+			// 	uni.chooseLocation({
+			// 		success: (data)=> {
+			// 			this.addressData.addressName = data.name;
+			// 			this.addressData.address = data.name;
+			// 		}
+			// 	})
+			// },
 			
 			//提交
 			confirm(){
@@ -96,6 +100,17 @@
 					uni.navigateBack()
 				}, 800)
 			},
+			
+			
+			btnClick() {
+        this.$refs.selectAddress.show()
+    },
+    successSelectAddress(address){ //选择成功回调
+    console.log(address)
+        }
+			
+			
+			
 		}
 	}
 </script>

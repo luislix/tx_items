@@ -19,6 +19,7 @@
 </template>
 
 <script>
+	import request from '../../common/request.js'
 	export default {
 		data() {
 			return {
@@ -45,10 +46,21 @@
 		onLoad(option){
 			console.log(option.source);
 			this.source = option.source;
+			// this.getList() //获取数据
 		},
 		methods: {
+			// 获取列表数据
+			getList() {
+				var data = {};
+				request.post('useraddress/index', data).then(res => {
+					console.log(res)
+					// this.catrgory = res.data.data
+					// 	this.makeup = false
+				})
+			},
 			//选择地址
 			checkAddress(item){
+				console.log(item)
 				if(this.source == 1){
 					//this.$api.prePage()获取上一页实例，在App.vue定义
 					this.$api.prePage().addressData = item;
@@ -64,14 +76,13 @@
 			refreshList(data, type){
 				//添加或修改后事件，这里直接在最前面添加了一条数据，实际应用中直接刷新地址列表即可
 				this.addressList.unshift(data);
-				
 				console.log(data, type);
 			}
 		}
 	}
 </script>
 
-<style lang='scss'>
+<style lang='less'>
 	page{
 		padding-bottom: 120upx;
 	}
